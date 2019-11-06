@@ -2,7 +2,7 @@ puts "Welcome to Tic Tac Toe!"
 puts "-----------------------"
 
 puts "Play a game with (1) Computer, (2) Your Friend:"
-game_mode = gets.chomp
+game_mode = gets.chomp.upcase!
 
 puts "You selected #{game_mode}"
 

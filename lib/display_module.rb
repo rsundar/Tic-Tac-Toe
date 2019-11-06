@@ -5,7 +5,7 @@ module Display
         2. You are X or O, your friend is O or X.
         3. Players take turns putting their marks in empty squares.
         4. The first player to get 3 in a row wins.
-        5. When all 9 squares are full, the game is over. If no player has 3.".green
+        5. When all 9 squares are full, the game is over. If no player has 3."
     end
 
     def self.show_board(cell)
@@ -23,5 +23,23 @@ module Display
         puts ''
     end
 
-    
+    def name_valid?(name)
+        loop do
+            valid = name.empty?
+            return name unless valid
+        end
+    end
+
+    def valid_element?(element)
+        loop do
+            valid = %w[X O x o]
+            return element if element.include? valid
+            puts "Please Enter X or O in upper case or lower case."
+            element = gets.chomp!
+        end
+    end
+
+    def players_info
+        
+    end
 end
