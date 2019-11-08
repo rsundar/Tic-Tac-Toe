@@ -23,14 +23,14 @@ module Display
         puts ''
     end
 
-    def name_valid?(name)
+    def self.name_valid?(name)
         loop do
             valid = name.empty?
             return name unless valid
         end
     end
 
-    def valid_element?(element)
+    def self.valid_element?(element)
         loop do
             valid = %w[X O x o]
             return element if element.include? valid
