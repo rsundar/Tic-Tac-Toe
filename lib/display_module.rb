@@ -39,7 +39,5 @@ module Display
         end
     end
 
-    def players_info
-        
-    end
+    
 end

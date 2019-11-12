@@ -3,3 +3,6 @@
 
 game_count = 0
 
+def gameStart
+end
+
