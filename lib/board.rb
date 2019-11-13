@@ -1,5 +1,3 @@
-require_relative '../lib/display_module'
-
 class Board
     attr_reader :moves, :cells, :no_winner
     def initialize
