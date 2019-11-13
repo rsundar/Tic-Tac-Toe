@@ -1,8 +1,11 @@
 #! /usr/bin/env ruby
 # frozen_string_literal: true
 
+require_relative '../lib/board.rb'
 game_count = 0
-$cells = [1,2,3,4,5,6,7,8,9]
+
+board = Board.new
+#$cells = [1,2,3,4,5,6,7,8,9]
 #def gameStart
 #end
 
@@ -12,7 +15,7 @@ def color(text,color="default")
     return "\033[#{color_code}m#{text}\033[0m"
 end
 
-def self.welcome
+def welcome
     puts " #{color("Welcome to the tic-tac-toe game!.
     1. The game is played on a grid that's 3 squares by 3 squares.
     2. Player 1 is X and Player 2 is O.
@@ -38,26 +41,26 @@ def display_board(n)
     puts ''
 end
 
-def update_board(position,cursor)
-    $cells[position.to_i-1] = cursor
-end
+#def update_board(position,cursor)
+#    $cells[position.to_i-1] = cursor
+#end
 
-def valid_position?(position)
-    invalid = %w[X O]
-    return !invalid.include?($cells[position.to_i-1]) && (1...10).include?(position.to_i)
-end
+#def valid_position?(position)
+#    invalid = %w[X O]
+#    return !invalid.include?($cells[position.to_i-1]) && (1...10).include?(position.to_i)
+#end
 
-display_board($cells)
+display_board(board.cells)
 
 5.times do
     puts "Enter a new position:"
     new_position = gets.chomp
 
-    if valid_position?(new_position)
-        update_board(new_position,'X')
+    if board.valid_position?(new_position)
+        board.update_board(new_position,'X')
     else
         puts "Invalid input!"
     end
 
-    display_board($cells)
+    display_board(board.cells)
 end

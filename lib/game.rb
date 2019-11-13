@@ -19,7 +19,7 @@ class Game
         @current_player = @current_player == @player1? @player2 : @player1
     end
 
-    def win_condition
+    def game_state
         return :winner if @board.winner
         return :draw if @board.draw
         :active
