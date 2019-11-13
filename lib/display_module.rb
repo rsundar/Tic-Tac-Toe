@@ -8,21 +8,6 @@ module Display
         5. When all 9 squares are full, the game is over. If no player has 3."
     end
 
-    def self.show_board(cell)
-        puts ''
-        puts '---+---+---'
-        cell.each do |i|
-            line = ''
-            i.each_with_index do |j,k|
-                line += "#{j} #{'|'}" if k!=2
-                line += "#{j}" if k==2
-            end
-            puts line
-            puts '---+---+---'
-        end
-        puts ''
-    end
-
     def self.name_valid?(name)
         loop do
             valid = name.empty?
@@ -32,10 +17,10 @@ module Display
 
     def self.valid_element?(element)
         loop do
-            valid = %w[X O x o]
-            return element if element.include? valid
+            valid = %w[X O]
+            return element if valid.include? element
             puts "Please Enter X or O in upper case or lower case."
-            element = gets.chomp!
+            element = gets.chomp.upcase!
         end
     end
 
