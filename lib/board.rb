@@ -1,6 +1,6 @@
-require_relative './display_module'
+require_relative '../lib/display_module'
 
-class board
+class Board
     attr_reader :moves, :cells, :no_winner
     def initialize
         @cells = [1,2,3,4,5,6,7,8,9]
@@ -25,12 +25,11 @@ class board
     end
 
     def update_board(position,cursor)
-        invalid_position = %w[X O]
-        if !invalid_position.include? @cells[position.to_i-1]
-            @cells[position.to_i-1] = cursor
-        else
-            puts "That position #{position} is taken please enter another:"
-        end
+        @cells[position.to_i-1] = cursor
     end
 
+    def valid_position?(position)
+        invalid = %w[X O]
+        return !invalid.include?($cells[position.to_i-1]) && (1...10).include?(position.to_i)
+    end
 end
