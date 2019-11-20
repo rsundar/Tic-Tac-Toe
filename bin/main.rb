@@ -63,7 +63,7 @@ display_board(board.cells)
     end
 
     if board.winner?
-        puts "#{color("The Winner is: #{board.winning_mark}","green")}"
+        puts "#{color("The Winner is: X","green")}"
         display_board(board.cells)
         break
     end

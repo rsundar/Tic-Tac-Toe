@@ -43,17 +43,7 @@ class Board
     end
 
     def winner?
-        win_condition.each do |line|
-            if line.all?{|i| i=="X"}
-                @winning_mark = 'X' 
-                return true
-            elsif line.all?{|i| i=="O"}
-                @winning_mark = 'O'
-                return true
-            else
-                return false
-            end
-        end
+        win_condition.any? { |line| line.all?('X') || line.all?('O') }
     end
 
     def draw?
