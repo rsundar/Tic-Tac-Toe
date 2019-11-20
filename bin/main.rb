@@ -62,5 +62,11 @@ display_board(board.cells)
         puts "Invalid input!"
     end
 
+    if board.winner?
+        puts "#{color("The Winner is: #{board.winning_mark}","green")}"
+        display_board(board.cells)
+        break
+    end
+
     display_board(board.cells)
 end
