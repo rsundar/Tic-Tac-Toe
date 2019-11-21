@@ -82,7 +82,7 @@ loop do
     puts "#{color("#{message}","green")}"
 
     print "#{color("Would you like to play again?(y/n): ","green")}"
-    selection = gets.chomp.downcase!
+    selection = gets.chomp.downcase.to_s
 
-    break unless selection == 'y'
+    break unless selection.start_with?('y')
 end
