@@ -37,23 +37,50 @@ def display_board(n)
     puts ''
 end
 
-display_board(board.cells)
+loop do
+    game = Game.new
 
-5.times do
-    puts "Enter a new position:"
-    new_position = gets.chomp
+    players = []
 
-    if board.valid_position?(new_position)
-        board.update_board(new_position,'X')
-    else
-        puts "#{color("Invalid input!","red")}"
+    puts ''
+    2.times do |i|
+        print "#{color("Enter your name player #{i+1}: ","blue")}"
+        players << gets.chomp
     end
 
-    if board.winner?
-        puts "#{color("The Winner is: X","green")}"
-        display_board(board.cells)
-        break
+    game.player1.name = players[0]
+    game.player2.name = players[1]
+
+    puts ''
+    puts "#{color("Welcome #{game.player1.name} & #{game.player2.name} Let's begin!","green")}"
+
+    loop do
+        game.switch_turn
+        display_board(game.board.cells)
+
+        position = ''
+        loop do
+            puts "#{color("#{game.current_player.name} your turn","green")}"
+            print "Enter the grid location to place your marker: "
+
+            position = gets.chomp
+
+            break if game.board.valid_position?(position)
+                
+            puts "#{color("Invalid Position! Please choose a valid position.","red")}"
+        end
+
+        game.turn(position.to_i)
+        break unless game.game_state == :active
     end
 
-    display_board(board.cells)
+    display_board(game.board.cells)
+
+    message = game.game_state == :winner ? "#{game.current_player.name} wins!" : "It's a Draw!"
+    puts "#{color("#{message}","green")}"
+
+    print "#{color("Would you like to play again?(y/n): ","green")}"
+    selection = gets.chomp.downcase!
+
+    break unless selection == 'y'
 end
