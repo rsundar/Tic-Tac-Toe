@@ -38,8 +38,7 @@ def display_board(n)
 end
 
 loop do
-    game = Game.new
-
+    
     players = []
 
     puts ''
@@ -48,8 +47,7 @@ loop do
         players << gets.chomp
     end
 
-    game.player1.name = players[0]
-    game.player2.name = players[1]
+    game = Game.new(players[0],players[1])
 
     puts ''
     puts "#{color("Welcome #{game.player1.name} & #{game.player2.name} Let's begin!","green")}"
@@ -65,7 +63,7 @@ loop do
 
             position = gets.chomp
 
-            break if game.board.valid_position?(position)
+            break if game.is_valid?(position)
                 
             puts "#{color("Invalid Position! Please choose a valid position.","red")}"
         end

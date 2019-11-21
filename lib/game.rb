@@ -4,10 +4,10 @@ class Game
     attr_accessor :player1, :player2
     attr_reader :current_player, :board
 
-    def initialize
+    def initialize(player1_name, player2_name)
         @board = Board.new
-        @player1 = Player.new('X')
-        @player2 = Player.new('O')
+        @player1 = Player.new(player1_name,'X')
+        @player2 = Player.new(player2_name,'O')
         @current_player = [@player1,@player2].sample(1).first
     end
 
@@ -19,6 +19,10 @@ class Game
         @current_player = @current_player == @player1? @player2 : @player1
     end
 
+    def is_valid?(position)
+        @board.valid_position?(position)
+    end
+    
     def game_state
         return :winner if @board.winner?
         return :draw if @board.draw?

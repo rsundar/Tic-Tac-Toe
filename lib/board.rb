@@ -8,22 +8,6 @@ class Board
         @moves = 9
     end
 
-    #def display_board(n)
-    #    array = n.each_slice(3).to_a
-    #    puts ''
-    #    puts '---|---|---'
-    #    array.each do |i|
-    #        line = ''
-    #        i.each_with_index do |j,k|
-    #            line += " #{j} #{'|'}" if k!=2
-    #            line += " #{j}" if k==2
-    #        end
-    #        puts line
-    #        puts '---|---|---'
-    #    end
-    #    puts ''
-    #end
-
     def update_board(position,cursor)
         @cells[position.to_i-1] = cursor
     end
