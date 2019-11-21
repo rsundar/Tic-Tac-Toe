@@ -13,6 +13,7 @@ class Game
 
     def turn(position)
         @board.update_board(position,@current_player.marker)
+        @board.moves = @board.moves - 1
     end
 
     def switch_turn
@@ -26,7 +27,7 @@ class Game
     def cells
         @board.cells
     end
-    
+
     def game_state
         return :winner if @board.winner?
         return :draw if @board.draw?

@@ -69,7 +69,6 @@ loop do
         end
 
         game.turn(position.to_i)
-        game.board.moves = game.board.moves - 1
 
         break unless game.game_state == :active
     end
