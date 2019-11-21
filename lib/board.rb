@@ -5,6 +5,7 @@ class Board
     attr_writer :moves
     def initialize
         @cells = [1,2,3,4,5,6,7,8,9]
+        @moves = 9
     end
 
     #def display_board(n)
@@ -45,6 +46,6 @@ class Board
     end
 
     def draw?
-        return !winner?
+        return !winner? && @moves == 0
     end
 end
