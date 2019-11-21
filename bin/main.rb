@@ -2,12 +2,8 @@
 # frozen_string_literal: true
 
 require_relative '../lib/board.rb'
-game_count = 0
-
-board = Board.new
-#$cells = [1,2,3,4,5,6,7,8,9]
-#def gameStart
-#end
+require_relative '../lib/game.rb'
+require_relative '../lib/player.rb'
 
 def color(text,color="default")
     colors = {"default"=>"38","red"=>"31","green"=>"32","blue"=>"34"}
@@ -41,15 +37,6 @@ def display_board(n)
     puts ''
 end
 
-#def update_board(position,cursor)
-#    $cells[position.to_i-1] = cursor
-#end
-
-#def valid_position?(position)
-#    invalid = %w[X O]
-#    return !invalid.include?($cells[position.to_i-1]) && (1...10).include?(position.to_i)
-#end
-
 display_board(board.cells)
 
 5.times do
@@ -59,7 +46,7 @@ display_board(board.cells)
     if board.valid_position?(new_position)
         board.update_board(new_position,'X')
     else
-        puts "Invalid input!"
+        puts "#{color("Invalid input!","red")}"
     end
 
     if board.winner?

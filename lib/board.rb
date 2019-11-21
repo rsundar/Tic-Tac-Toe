@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
 class Board
-    attr_reader :moves, :cells, :winning_mark
+    attr_reader :moves, :cells
     attr_writer :moves
     def initialize
         @cells = [1,2,3,4,5,6,7,8,9]
-        @moves = 9
-        @winning_mark = ''
     end
 
     #def display_board(n)
@@ -47,6 +45,6 @@ class Board
     end
 
     def draw?
-        return !winner? && @moves == 0
+        return !winner?
     end
 end
