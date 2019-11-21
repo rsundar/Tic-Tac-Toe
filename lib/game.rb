@@ -22,6 +22,10 @@ class Game
     def is_valid?(position)
         @board.valid_position?(position)
     end
+
+    def cells
+        @board.cells
+    end
     
     def game_state
         return :winner if @board.winner?

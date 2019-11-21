@@ -54,7 +54,7 @@ loop do
 
     loop do
         game.switch_turn
-        display_board(game.board.cells)
+        display_board(game.cells)
 
         position = ''
         loop do
@@ -74,7 +74,7 @@ loop do
         break unless game.game_state == :active
     end
 
-    display_board(game.board.cells)
+    display_board(game.cells)
 
     message = game.game_state == :winner ? "#{game.current_player.name} wins!" : "It's a Draw!"
     puts "#{color("#{message}","green")}"
