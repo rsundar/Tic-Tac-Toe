@@ -18,5 +18,8 @@ Layout:
 Style:
   Enabled: false
 
+Naming:
+  Enabled: false
+
 Documentation:
   Enabled: false
