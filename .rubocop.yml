@@ -12,23 +12,7 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe']
   # Max: 30
 
-Layout/AccessModifierIndentation:
-  EnforcedStyle: Indent
-  IndentationWidth: 4
-
-Layout/EmptyLineAfterGaurdClause:
-  Enabled: false
-
-Layout/EndOfLine:
-  Enabled: false
-
-Layout/TrailingBlankLines:
-  Enabled: false
-
-Layout/TrailingWhitespace:
-  Enabled: false
-
-Naming/PredicateName:
+Style:
   Enabled: false
 
 Documentation:
