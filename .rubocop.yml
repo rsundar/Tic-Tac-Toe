@@ -15,6 +15,9 @@ Metrics/BlockLength:
 Layout:
   Enabled: false
 
+Lint:
+  Enabled: false
+
 Style:
   Enabled: false
 
