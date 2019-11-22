@@ -7,8 +7,8 @@ require_relative '../lib/player.rb'
 
 # rubocop:disable Metrics/BlockLength
 
-def color(text, color="default")
-    colors = {"default"=>"38", "red"=>"31", "green"=>"32", "blue"=>"34"}
+def color(text, color='default')
+    colors = { 'default' => '38', 'red' => '31', 'green' => '32', 'blue' => '34' }
     color_code = colors[color]
     return "\033[#{color_code}m#{text}\033[0m"
 end
@@ -23,15 +23,15 @@ def welcome
 end
 welcome
 
-def display_board(n)
-    array = n.each_slice(3).to_a
+def display_board(cell)
+    array = cell.each_slice(3).to_a
     puts ''
     puts "#{color("---|---|---", "blue")}"
     array.each do |i|
         line = ''
-        i.each_with_index do |j,k|
-            line += " #{j} #{'|'}" if k!=2
-            line += " #{j}" if k==2
+        i.each_with_index do |j, k|
+            line += " #{j} #{'|'}" if k != 2
+            line += " #{j}" if k == 2
         end
         puts "#{color("#{line}", "blue")}"
         puts "#{color("---|---|---", "blue")}"
@@ -40,16 +40,15 @@ def display_board(n)
 end
 
 loop do
-    
     players = []
 
     puts ''
     2.times do |i|
-        print "#{color("Enter your name player #{i+1}: ", "blue")}"
+        print "#{color("Enter your name player #{i + 1}: ", "blue")}"
         players << gets.chomp
     end
 
-    game = Game.new(players[0],players[1])
+    game = Game.new(players[0], players[1])
 
     puts ''
     puts "#{color("Welcome #{game.player1.name} & #{game.player2.name} Let's begin!", "green")}"
@@ -66,7 +65,7 @@ loop do
             position = gets.chomp
 
             break if game.is_valid?(position)
-                
+
             puts "#{color("Invalid Position! Please choose a valid position.", "red")}"
         end
 
@@ -78,7 +77,7 @@ loop do
     display_board(game.cells)
 
     message = game.game_state == :winner ? "#{game.current_player.name} wins!" : "It's a Draw!"
-    puts "#{color("#{message}","green")}"
+    puts "#{color("#{message}", "green")}"
 
     print "#{color("Would you like to play again?(y/n): ", "green")}"
     selection = gets.chomp.downcase.to_s
