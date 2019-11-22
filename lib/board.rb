@@ -8,6 +8,10 @@ class Board
         @moves = 9
     end
 
+    def marker
+        marker = {:X => 'X', :O => 'O'}
+    end
+
     def update_board(position,cursor)
         @cells[position.to_i-1] = cursor
     end
@@ -26,7 +30,7 @@ class Board
     end
 
     def winner?
-        win_condition.any? { |line| line.all?('X') || line.all?('O') }
+        win_condition.any? { |line| line.all?(marker[:X]) || line.all?(marker[:O]) }
     end
 
     def draw?
