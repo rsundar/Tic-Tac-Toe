@@ -10,7 +10,10 @@ This is an implementation of the game Tic Tac Toe.
 - Player 1 is X and Player 2 is O.
 - Players take turns putting their marks in the numbered squares.
 - The first player to get 3 in a row wins.
-- When all 9 squares are full, the game is a draw. If no player has 3 in a row.
+- 3 in a row implies the presence of 3 of the same marker ('X' or 'O') in consecutive positions.
+- That is horizontally consecutive, vertically consecutive, and diagonally consecutive.
+- When all 9 squares are full, the game is a draw, if no player has won.
+
 
 # Usage
 - If you want to play the game please clone the repo.
