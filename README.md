@@ -11,7 +11,7 @@ This is an implementation of the game Tic Tac Toe.
 - Players take turns putting their marks in the numbered squares.
 - The first player to get 3 in a row wins.
 - 3 in a row implies the presence of 3 of the same marker ('X' or 'O') in consecutive positions.
-- That is horizontally consecutive, vertically consecutive, and diagonally consecutive.
+- That is horizontally consecutive, vertically consecutive, or diagonally consecutive.
 - When all 9 squares are full, the game is a draw, if no player has won.
 
 
