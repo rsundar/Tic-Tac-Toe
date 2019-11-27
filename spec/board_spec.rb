@@ -53,6 +53,10 @@ describe "Board Tests" do
         it "Check if the board has a winner. Should return true" do
             expect(board.winner?).to be true
         end
+
+        it "The draw? method should return false" do
+            expect(board.draw?).to be false
+        end
     end
 
     context "Drawn game" do
@@ -74,6 +78,30 @@ describe "Board Tests" do
         it "Check if the game is a draw" do
             expect(board.draw?).to be true
         end
+
+        it "The winner? method should return false" do
+            expect(board.winner?).to be false
+        end
     end
 
+    context "Updating the board" do
+        let(:position) {4}
+        let(:marker) {'O'}
+        let(:new_board) {[1,2,3,'O',5,6,7,8,9]}
+        subject(:board) { Board.new(default,moves) }
+
+        it "Update the board by placing a marker and check if it returns the correct board state." do
+            board.update_board(position,marker)
+            expect(board.cells).to eq(new_board)
+        end
+
+        it "Update the board again at the same position to see if it returns an invalid position" do
+            board.update_board(4,'O')
+            expect(board.valid_position?(position)).to be false
+        end
+
+        it "Update the board at a new location to see if the method returns true" do
+            expect(board.valid_position?(5)).to be true
+        end
+    end
 end
