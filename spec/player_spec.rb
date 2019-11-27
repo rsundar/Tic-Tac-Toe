@@ -15,4 +15,19 @@ describe "Player Tests" do
         actual_marker = player.marker
         expect(actual_marker).to eq('X')
     end
+
+    context "Testing the functionality of the Player if no name is provided" do
+        let(:marker) {"O"}
+        subject(:player) { Player.new(marker)}
+
+        it "No name tests" do
+            name = player.name
+            expect(name).to eq("Player")
+        end
+
+        it "Marker tests" do
+            marker = player.marker
+            expect(marker).to eq("O")
+        end
+    end
 end
