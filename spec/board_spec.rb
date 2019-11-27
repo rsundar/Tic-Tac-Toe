@@ -75,7 +75,7 @@ describe "Board Tests" do
             expect(board.moves).to eq(0)
         end
 
-        it "Check if the game is a draw" do
+        it "Check if the game is a draw. Should be true" do
             expect(board.draw?).to be true
         end
 
