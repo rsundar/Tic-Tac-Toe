@@ -2,8 +2,8 @@ require 'rspec'
 require_relative '../lib/player.rb'
 
 describe "Player Tests" do
-    let(:name) {"Rohan"}
-    let(:marker) {'X'}
+    let(:name) { "Rohan" }
+    let(:marker) { 'X' }
     subject(:player) { Player.new(name, marker) }
 
     it "Testing if name can be accepted as provided" do
@@ -18,7 +18,7 @@ describe "Player Tests" do
 
     context "Testing the functionality of the Player if no name is provided" do
         let(:marker) {"O"}
-        subject(:player) { Player.new(marker)}
+        subject(:player) { Player.new(marker) }
 
         it "No name tests" do
             name = player.name

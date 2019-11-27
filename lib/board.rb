@@ -3,9 +3,9 @@
 class Board
     attr_reader :moves, :cells
     attr_writer :moves
-    def initialize
-        @cells = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        @moves = 9
+    def initialize(cells=[1,2,3,4,5,6,7,8,9], moves=9)
+        @cells = cells
+        @moves = moves
     end
 
     def marker
