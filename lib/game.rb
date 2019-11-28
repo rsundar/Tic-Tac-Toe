@@ -4,11 +4,11 @@ class Game
     attr_accessor :player1, :player2
     attr_reader :current_player, :board
 
-    def initialize(player1_name, player2_name)
-        @board = Board.new
+    def initialize(player1_name, player2_name, current_player=nil, board=Board.new)
+        @board = board
         @player1 = Player.new(player1_name, board.marker[:X])
         @player2 = Player.new(player2_name, board.marker[:O])
-        @current_player = [@player1, @player2].sample(1).first
+        @current_player = current_player || [@player1, @player2].sample(1).first
     end
 
     def turn(position)
