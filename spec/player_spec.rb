@@ -1,4 +1,4 @@
-require 'rspec'
+require 'spec_helper'
 require_relative '../lib/player.rb'
 
 describe "Player Tests" do
