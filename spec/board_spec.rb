@@ -1,13 +1,13 @@
 require 'rspec'
 require_relative '../lib/board.rb'
 
-describe "Board Tests" do
+describe Board do
     let(:default) {[1,2,3,4,5,6,7,8,9]}
     let(:winner) {['X',2,3,4,'X',6,7,8,'X']}
     let(:draw) {['X','O','X','X','O','X','O','X','O']}
     let(:moves) {9}
 
-    context "Check if Board is created" do
+    describe "Check if Board is created" do
         subject(:board) { Board.new(default,moves) }
         
         it "Check if board object is created" do
@@ -23,7 +23,7 @@ describe "Board Tests" do
         end
     end
 
-    context "Check if empty board is created when no parameters are passed" do
+    describe "Check if empty board is created when no parameters are passed" do
         subject(:board) { Board.new }
 
         it "Check if the board is created" do
@@ -39,7 +39,7 @@ describe "Board Tests" do
         end
     end
 
-    context "Winning Board" do
+    describe "Winning Board" do
         subject(:board) { Board.new(winner,moves) }
 
         it "Check if the board is created" do
@@ -59,7 +59,7 @@ describe "Board Tests" do
         end
     end
 
-    context "Drawn game" do
+    describe "Drawn game" do
         let(:moves) {0}
         subject(:board) { Board.new(draw,moves) }
 
@@ -84,7 +84,7 @@ describe "Board Tests" do
         end
     end
 
-    context "Updating the board" do
+    describe "Updating the board" do
         let(:position) {4}
         let(:marker) {'O'}
         let(:new_board) {[1,2,3,'O',5,6,7,8,9]}

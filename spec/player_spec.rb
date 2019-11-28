@@ -19,7 +19,7 @@ describe "Player Tests" do
         end
     end
 
-    describe "Creste new PLayer without name" do
+    describe "Create new PLayer without name" do
         let(:marker) {"O"}
         subject(:player) { Player.new(marker) }
 

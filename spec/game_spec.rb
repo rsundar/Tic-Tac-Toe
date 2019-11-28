@@ -3,14 +3,14 @@ require_relative '../lib/game.rb'
 require_relative '../lib/board.rb'
 require_relative '../lib/player.rb'
 
-describe "Game tests" do
+describe Game do
     let(:player1) { 'Rohan' }
     let(:player2) { 'Vivek' }
     let(:marker1) { 'X' }
     let(:marker2) { 'O' }
     subject(:game) { Game.new(player1, player2) }
 
-    context "Retrieve player names and markers" do
+    describe "Retrieve player names and markers" do
         it "Check if the Game object was created" do
             expect(game).to be_a Game
         end
@@ -36,7 +36,7 @@ describe "Game tests" do
         end
     end
 
-    context "Gameplay tests. Testing switching turns and board update." do
+    describe "Gameplay tests. Testing switching turns and board update." do
         let(:current_player) { Player.new(player1, marker1) }
         subject(:game) { Game.new( player1, player2, current_player ) }
         
@@ -57,7 +57,26 @@ describe "Game tests" do
         end
     end
 
-    context "Game Won" do
+    describe "Checking the functionality of the is_valid? method" do
+        let(:default) {[1,2,3,'X',5,6,7,8,9]}
+        let(:board) { Board.new(default, 8) }
+        let(:current_player) { Player.new(player1, marker1) }
+        subject(:game) { Game.new( player1, player2, current_player=nil, board) }
+
+        it "Try to update the board at position 4. is_valid? should return false." do
+            expect(game.is_valid?(4)).to be false
+        end
+
+        it "Try to update board at position 5. is_valid? should return true." do
+            expect(game.is_valid?(5)).to be true
+        end
+
+        it "Try to update board at position 10. is_valid? should return false." do
+            expect(game.is_valid?(10)).to be false
+        end
+    end
+
+    describe "Game Won" do
         let(:win) { ['X',2,3,4,'X',6,7,8,'X'] }
         let(:current_player) { Player.new(player1, marker1) }
         let(:board) { Board.new(win,9) }
@@ -68,7 +87,7 @@ describe "Game tests" do
         end
     end
 
-    context "Game Drawn" do
+    describe "Game Drawn" do
         let(:drawn) { ['X','O','X','X','O','X','O','X','O'] }
         let(:current_player) { Player.new(player1, marker1) }
         let(:board) { Board.new(drawn,0) }
