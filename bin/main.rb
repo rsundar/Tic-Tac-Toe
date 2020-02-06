@@ -50,7 +50,7 @@ end
 winCount = {players[0] => 0, players[1] => 0}
 
 loop do
-    puts "\n Current record : #{players[0]} : #{winCount[players[0]]} \n \t \t #{players[1]} : #{winCount[players[1]]}"
+    puts "\n Current record : #{players[0]} : #{winCount[players[0]]} \n \t \t  #{players[1]} : #{winCount[players[1]]}"
 
     game = Game.new(players[0], players[1])
 
