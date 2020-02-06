@@ -39,14 +39,18 @@ def display_board(cell)
     puts ''
 end
 
-loop do
-    players = []
+players = []
 
-    puts ''
-    2.times do |i|
-        print "#{color("Enter your name player #{i + 1}: ", "blue")}"
-        players << gets.chomp
-    end
+puts ''
+2.times do |i|
+    print "#{color("Enter your name player #{i + 1}: ", "blue")}"
+    players << gets.chomp
+end
+
+winCount = {players[0] => 0, players[1] => 0}
+
+loop do
+    puts "\n Current record : #{players[0]} : #{winCount[players[0]]} \n \t \t #{players[1]} : #{winCount[players[1]]}"
 
     game = Game.new(players[0], players[1])
 
@@ -78,6 +82,10 @@ loop do
 
     message = game.game_state == :winner ? "#{game.current_player.name} wins!" : "It's a Draw!"
     puts "#{color("#{message}", "green")}"
+
+    if game.game_state == :winner
+        winCount[game.current_player.name] += 1
+    end
 
     print "#{color("Would you like to play again?(y/n): ", "green")}"
     selection = gets.chomp.downcase.to_s
