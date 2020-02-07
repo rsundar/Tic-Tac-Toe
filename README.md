@@ -3,8 +3,10 @@
 This is an implementation of the game Tic Tac Toe.
 
 ![screenshot](./application-screenshot.png)
+
 # Technologies Used
 - Ruby
+- Rspec for testing
 
 # Game Instructions
 - The game is played on a grid that's 3 squares by 3 squares.
