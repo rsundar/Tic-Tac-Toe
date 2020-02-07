@@ -2,6 +2,7 @@
 
 This is an implementation of the game Tic Tac Toe.
 
+![screenshot](./application-screenshot.png)
 # Technologies Used
 - Ruby
 
