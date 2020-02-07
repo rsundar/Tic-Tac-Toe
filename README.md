@@ -25,6 +25,9 @@ This is an implementation of the game Tic Tac Toe.
 - Run with ``` bin/main.rb```
 - Have fun!
 
+# Testing
+- In the parent directory type ```$rspec``` to run the tests. 
+
 # Live Version
 - Please visit here and click on the run button: [Replit](https://repl.it/@rohansundar/tic-tac-toe)
 
