@@ -1,14 +1,16 @@
 # Tic-Tac-Toe
 
-This is an implementation of the game Tic Tac Toe.
+This is an implementation of the game Tic Tac Toe in ruby.
 
 ![screenshot](./application-screenshot.png)
 
 # Technologies Used
+
 - Ruby
 - Rspec for testing
 
 # Game Instructions
+
 - The game is played on a grid that's 3 squares by 3 squares.
 - Player 1 is X and Player 2 is O.
 - Players take turns putting their marks in the numbered squares.
@@ -19,6 +21,7 @@ This is an implementation of the game Tic Tac Toe.
 
 
 # Usage
+
 - If you want to play the game please clone the repo.
 - Run ```ls -al``` and check the permissions for the repo
 - If you do not have executable permissions please run ```chmod 777 <folder_name>```
@@ -26,11 +29,17 @@ This is an implementation of the game Tic Tac Toe.
 - Have fun!
 
 # Testing
+
 - In the parent directory type ```$ rspec``` to run the tests. 
 
 # Live Version
+
 - Please visit here and click on the run button: [Replit](https://repl.it/@rohansundar/tic-tac-toe)
 
 # Contributors
+
 - Rohan Sundar: [Github](https://www.github.com/rsundar)
 
+# License
+
+This project is [MIT](https://www.github.com/rsundar/Tic-Tac-Toe/tree/master/LICENSE) licensed.
